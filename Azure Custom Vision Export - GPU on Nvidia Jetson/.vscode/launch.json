@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Object_Detection_GPU_ARM64v6_Jetson Remote Debug (Python)",
+      "type": "python",
+      "request": "attach",
+      "port": 5678,
+      "host": "localhost",
+      "logToFile": true,
+      "redirectOutput": true,
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}/modules/Object_Detection_GPU_ARM64v6_Jetson",
+          "remoteRoot": "/app"
+        }
+      ],
+      "windows": {
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceFolder}\\modules\\Object_Detection_GPU_ARM64v6_Jetson",
+            "remoteRoot": "/app"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Object_Detection_GPU_ARM64v6_Jetson Local Debug (Python)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/modules/Object_Detection_GPU_ARM64v6_Jetson/main.py",
+      "console": "integratedTerminal",
+      "env": {
+        "EdgeHubConnectionString": "${config:azure-iot-edge.EdgeHubConnectionString}",
+        "EdgeModuleCACertificateFile": "${config:azure-iot-edge.EdgeModuleCACertificateFile}"
+      },
+      "windows": {
+        "program": "${workspaceFolder}\\modules\\Object_Detection_GPU_ARM64v6_Jetson\\main.py"
+      }
+    }
+  ]
+}

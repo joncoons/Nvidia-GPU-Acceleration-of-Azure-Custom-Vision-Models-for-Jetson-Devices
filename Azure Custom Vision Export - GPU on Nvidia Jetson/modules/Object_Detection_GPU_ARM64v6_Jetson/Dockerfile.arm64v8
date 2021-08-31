@@ -1,0 +1,31 @@
+# to build base image:
+# https://github.com/microsoft/onnxruntime/tree/master/dockerfiles#nvidia-jetson-tx1tx2nanoxavier
+# https://elinux.org/Jetson_Zoo#ONNX_Runtime
+
+
+FROM <your ACR repo>/jetson_onnx_base:0.0.2-arm64v8
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt install -y --no-install-recommends \
+    libprotobuf-dev protobuf-compiler 
+
+# RUN pip3 install cython protobuf numpy>=1.19.0
+RUN python3 -m pip install cython protobuf numpy>=1.19.0
+RUN python3 -m pip install onnx==1.8.1
+RUN python3 -m pip install flask pillow
+
+COPY app /app
+
+# Expose the port
+EXPOSE 80
+
+# Set the working directory
+WORKDIR /app
+
+# Set the CUDA library and bin folder
+ENV LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
+
+
+# Run the flask server for the endpoints
+CMD [ "python3", "-u", "./app.py" ]
