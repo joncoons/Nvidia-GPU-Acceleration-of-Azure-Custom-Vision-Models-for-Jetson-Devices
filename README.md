@@ -1,5 +1,5 @@
 # Nvidia GPU Acceleration of Azure Custom Vision Models for Jetson Devices
-One of the challenges in leveraging Azure's Custom Vision containers in production has been GPU acceleration for the exported model when deploying to IoT Edge. The purpose of this repository is to share my learnings from experimenting with Nvidia Jetson-based GPU devices, using IoT Edge with Azure Custom Vision containers.
+One of the challenges in leveraging Azure's Custom Vision containers for production has been GPU acceleration for the exported model when deploying to IoT Edge. The purpose of this repository is to share my learnings from experimenting with Nvidia Jetson-based GPU devices, using IoT Edge with Azure Custom Vision containers.
 
 If you're utilizing Jetpack 4.4, there is a pre-built ONNX runtime container available to implement, which saves a bit of pre-work.  For the purposes of this repository, you would simply replace the base container in the secondary docker file FROM mcr.microsoft.com/azureml/onnxruntime:v.1.4.0-jetpack4.4-l4t-base-r32.4.3 and build the container as noted. 
 
