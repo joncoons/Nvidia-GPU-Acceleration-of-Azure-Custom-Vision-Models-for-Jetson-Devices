@@ -9,7 +9,7 @@ Since hardware acceleration for Nvidia Jetson-based devices is achieved via a pa
 
 As a pre-requisite to the build, I've found that downloading the appropriate pre-built ONNX Runtime wheel file and including it via 'COPY' works much better than performing a 'RUN wget' in the dockerfile.  Here is a link to the pre-built wheels from Nvidia Jetson Zoo: https://elinux.org/Jetson_Zoo#ONNX_Runtime.  This also seems to work much better than calling the build.sh script to build the wheel from source files as noted in the ONNX Runtime repo documentation:  https://github.com/microsoft/onnxruntime/tree/master/dockerfiles#nvidia-jetson-tx1tx2nanoxavier.
 
- Testing raw .jpg images over HTTP with this build running the Tegra OS/Jetpack 4.5.1 using a Flask app has been yielding results in the ~80ms range when tested on a Xavier AGX device, once the ONNX Runtime engine is initiated.  Faster round-trip inference times could likely be achieved through utilizing gRCP endpoints in lieu of HTTP, which is a planned enhancement to the example.
+ Testing raw .jpg images over HTTP with this build running the Tegra OS/Jetpack 4.5.1 using a Flask app has been yielding results in the ~80ms range when tested on a Xavier AGX device, once the ONNX Runtime engine is initiated.  Faster round-trip inference times could likely be achieved through utilizing gRPC endpoints in lieu of HTTP, which is a planned enhancement to the example.
 
 To get started, go to https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/ and train your object detection model using Azure Custom Vision. Export the trained model as an ONNX model (FP16 or FP32), and replace the model.onnx placeholder file in the folder above, as well as the labels.txt file.
 
