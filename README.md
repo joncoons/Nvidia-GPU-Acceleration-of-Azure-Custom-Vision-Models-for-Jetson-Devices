@@ -25,6 +25,8 @@ Since hardware acceleration for Nvidia Jetson-based devices is achieved via a pa
     }
 }
  
+ ![alt text](http://github.com/joncoons/Nvidia-GPU-Acceleration-of-Azure-Custom-Vision-Models-for-Jetson-Devicesl/to/img.png)
+ 
  
 7. Run 'sudo systemctl restart docker' to reload the daemon.json settings.
 8. Run 'sudo -H DOCKER_BUILDKIT=1 nvidia-docker build -f Dockerfile.jetson -t <your ACR repo>/onnxruntime:0.0.1-arm64v8 . && sudo docker push <your ACR repo>./onnxruntime:0.0.1-arm64v8 to build the container, which will be used as a base container in VS Code for the ONNX model.
