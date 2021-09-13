@@ -25,7 +25,7 @@ Since hardware acceleration for Nvidia Jetson-based devices is achieved via a pa
     }
 }
  
- ![alt text](http://github.com/joncoons/Nvidia-GPU-Acceleration-of-Azure-Custom-Vision-Models-for-Jetson-Devices/daemon_json.JPG)
+ ![alt text](https://github.com/joncoons/Nvidia-GPU-Acceleration-of-Azure-Custom-Vision-Models-for-Jetson-Devices/daemon_json.JPG)
  
  
 7. Run 'sudo systemctl restart docker' to reload the daemon.json settings.
