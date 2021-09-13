@@ -24,6 +24,8 @@ Since hardware acceleration for Nvidia Jetson-based devices is achieved via a pa
         }
     }
 }
+ 
+ 
 7. Run 'sudo systemctl restart docker' to reload the daemon.json settings.
 8. Run 'sudo -H DOCKER_BUILDKIT=1 nvidia-docker build -f Dockerfile.jetson -t <your ACR repo>/onnxruntime:0.0.1-arm64v8 . && sudo docker push <your ACR repo>./onnxruntime:0.0.1-arm64v8 to build the container, which will be used as a base container in VS Code for the ONNX model.
 9.  Once you've confirmed that the container has pushed to your Azure Container Repo, you can delete the container on the Nvidia device to conserve space.  Run 'sudo docker image ls' to list all your active containers.  Copy the Image ID of the container you want to remove, and run 'sudo docker image rm -f <image id>'
