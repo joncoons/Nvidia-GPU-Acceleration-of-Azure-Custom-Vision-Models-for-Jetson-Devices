@@ -1,7 +1,7 @@
 # This Dockerfile just installs pre-built ONNX Runtime wheel inside the image.
 # 
 # Build command:
-# sudo nvidia-docker build --rm -f Dockerfile.jetson -t <your ACR repo>/jetson_onnx_base:0.0.2-arm64v8 . && sudo docker push <your ACR repo>/jetson_onnx_base:0.0.2-arm64v8
+# sudo -H DOCKER_BUILDKIT=1 nvidia-docker build -f Dockerfile.jetson -t <your ACR repo>/onnxruntime:0.0.1-arm64v8 . && sudo docker push <your ACR repo>/onnxruntime:0.0.1-arm64v8
 
 # for Jetson Jetpack 4.5.1
 ARG BASE_IMAGE=nvcr.io/nvidia/l4t-base:r32.5.0 
